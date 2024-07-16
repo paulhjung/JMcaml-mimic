@@ -15,7 +15,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from tqdm import tqdm
 
 from constants import *
-import datasets
+import datasetsJM
 import evaluation
 from learn import tools
 import persistence
@@ -34,7 +34,7 @@ def main(Y, train_fname, dev_fname, vocab_file, version, n):
 
     #get lookups from non-BOW data
     data_path = train_fname.replace('_bows', '') if "_bows" in train_fname else train_fname
-    dicts = datasets.load_lookups(data_path, vocab_file=vocab_file, Y=Y, version=version)
+    dicts = datasetsJM.load_lookups(data_path, vocab_file=vocab_file, Y=Y, version=version)
     w2ind, ind2c, c2ind = dicts['w2ind'], dicts['ind2c'], dicts['c2ind']
 
     X, yy_tr, hids_tr = read_bows(Y, train_fname, c2ind, version)

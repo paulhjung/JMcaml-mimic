@@ -10,7 +10,7 @@ import numpy as np
 from tqdm import tqdm
 
 from constants import *
-import datasets
+import datasetsJM
 
 CONTEXT_SIZE = 10
 NUM_QUESTIONS = 100
@@ -26,7 +26,7 @@ LR_FILENAME = "baz"
 SIM_FILENAME = "hax"
 
 def main():
-    desc_dict = datasets.load_code_descriptions()
+    desc_dict = datasetsJM.load_code_descriptions()
 
     print("loading attn windows")
     attn_windows = {}

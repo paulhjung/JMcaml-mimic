@@ -12,7 +12,7 @@ from torch.autograd import Variable
 
 from learn import models
 from constants import *
-import datasets
+import datasetsJM
 import persistence
 import numpy as np
 
@@ -66,6 +66,6 @@ def build_code_vecs(code_inds, dicts):
             #vec is a single UNK if not in lookup
             vecs.append([len(ind2w) + 1])
     #pad everything
-    vecs = datasets.pad_desc_vecs(vecs)
+    vecs = datasetsJM.pad_desc_vecs(vecs)
     return (torch.cuda.LongTensor(code_inds), vecs)
 

@@ -11,7 +11,7 @@ import numpy as np
 from tqdm import tqdm
 
 from constants import *
-import datasets
+import datasetsJM
 import evaluation
 from learn import tools
 
@@ -30,7 +30,7 @@ data_dir = MIMIC_2_DIR if version == 'mimic2' else MIMIC_3_DIR
 train_file = '%s/train.csv' % data_dir if version == 'mimic2' else '%s/train_%s.csv' % (data_dir, str(Y))
 test_file = '%s/test.csv' % data_dir if version == 'mimic2' else '%s/test_%s.csv' % (data_dir, str(Y))
 
-ind2c, _ = datasets.load_full_codes(train_file, version=version)
+ind2c, _ = datasetsJM.load_full_codes(train_file, version=version)
 c2ind = {c:i for i,c in ind2c.items()}
 num_labels = len(ind2c)
 
